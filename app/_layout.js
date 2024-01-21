@@ -5,6 +5,7 @@ import { Stack } from 'expo-router'
 import axios from 'axios'
 import ApiContext from '../utils/ApiContext'
 import * as SecureStore from 'expo-secure-store';
+import NavbarContextProvider from '../utils/NavbarContextProvider'
 
 const Layout = () => {
 
@@ -25,11 +26,9 @@ const Layout = () => {
               authenticated: true
           })
   
-          console.log('result.data')
-          console.log('result.data')
-          console.log(result.data)
+          console.log('login')
   
-          await SecureStore.setItem('token', "result.data")
+          await SecureStore.setItem('token', result.data)
   
           setLoading(false)
           
@@ -45,7 +44,7 @@ const Layout = () => {
   //skeleton fetch function with token
   const fetchWithToken = async (url, method, body=null) => {
   
-      const token =  await SecureStore.getItem('token', result.data)
+      const token =  await SecureStore.getItem('token')
   
       //redirect to login if no token is available
       if (!token) {
@@ -65,12 +64,14 @@ const Layout = () => {
                     }
                   })
                   setLoading(false)
+                  if (result?.error) {
+                    return { error: true, errorMessage: error }
+                  }
                   return result
               } catch (error) {
                   setLoading(false)
                   return { error: true, errorMessage: error }
               }    
-              break;
           case 'GET':
               try {
                   const result = await axios.get(`${API_URL}${url}`, {
@@ -78,13 +79,18 @@ const Layout = () => {
                         Authorization: 'Bearer ' + token
                     }
                   })
+
+                  console.log('result')
+                  console.log(result)
+                  if (result?.error) {
+                    return { error: true, errorMessage: error }
+                  }                  
                   setLoading(false)
                   return result
               } catch (error) {
                   setLoading(false)
                   return { error: true, errorMessage: error }
               }    
-              break;
       
           default:
               break;
@@ -118,7 +124,7 @@ const Layout = () => {
   //context values to be consumed by any child / grand-child component
   const apiUtil = {
       login: login,
-      getService: getServices,
+      getServices: getServices,
       getCustomerSubscriptions: getCustomerSubscriptions,
       subscribeToService: subscribeToService,
       authState: authState,
@@ -128,7 +134,9 @@ const Layout = () => {
 
   return (
     <ApiContext.Provider value={apiUtil}>
-      <Stack />
+        <NavbarContextProvider>
+            <Stack />
+        </NavbarContextProvider>
     </ApiContext.Provider>
   )
 }
