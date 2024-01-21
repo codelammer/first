@@ -46,6 +46,9 @@ const home = () => {
       <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
         <Text>dsjsjkd</Text>
       </ScrollView>
+      <View>
+        
+      </View>
       <View style={[styles.navbar, rootStyle.center]}>
         <Navbar />
       </View>

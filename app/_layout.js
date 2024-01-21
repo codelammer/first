@@ -28,7 +28,11 @@ const Layout = () => {
   
           console.log('login')
   
-          await SecureStore.setItem('token', result.data)
+          try {
+            await SecureStore.setItem('token', result.data)
+          } catch (e) {
+            return { error: true, errorMessage: "Internal error" }
+          }
   
           setLoading(false)
           
