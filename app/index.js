@@ -16,7 +16,7 @@ const index = () => {
             <View style={styles.container}>
                 <View style={styles.jumbotron}>
                     <Text style={styles.heading}>First</Text>
-                    <Text style={styles.description}>A FinTech company that offers a subscription services</Text>
+                    <Text style={styles.description}>A FinTech company that offers subscription services</Text>
                 </View>
 
                 <View style={rootStyle.mY(2)}>
