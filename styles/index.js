@@ -36,7 +36,14 @@ const rootStyle = StyleSheet.create({
         { 
             marginVertical: (SIZES.medium * number) 
         }
-    )
+    ),
+    headingTitle: {
+        fontSize: (SIZES.large * 2),
+        fontWeight: '800'
+      },
+    textWhite: {
+        color: COLORS.white
+      },
 })
 
 export default rootStyle

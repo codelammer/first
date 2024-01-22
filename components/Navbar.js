@@ -56,9 +56,8 @@ const styles = StyleSheet.create({
         {
             height: "50%",
             opacity: 0.4,
-            opacity: sactiveNav === tab ? 1 : 0.4,
-            
-            marginVertical: 2,
+            opacity: sactiveNav === tab ? 1 : 0.4,            
+            marginVertical: 2,            
         }
     ),
     active: {
@@ -71,5 +70,8 @@ const styles = StyleSheet.create({
             color: sactiveNav === tab ? COLORS.tertiary : COLORS.gray
         }
     ),
+    iconWrapper: {
+        paddingHorizontal: 30
+    }
 });
 export default Navbar;

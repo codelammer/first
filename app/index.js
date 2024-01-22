@@ -8,7 +8,7 @@ import rootStyle from '../styles'
 const index = () => {
     const router = useRouter()
     setTimeout(() => {        
-        router.push('/home')
+        router.push('/services/2')
     }, 2000);
 
     return (
