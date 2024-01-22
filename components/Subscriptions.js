@@ -34,7 +34,7 @@ const Subscriptions = () => {
             </View>
 
             <ScrollView>
-                {false ? [1, 2, 3, 4, 5, 6, 7, 8].map((it, i) => (
+                {true ? [1, 2, 3, 4, 5, 6, 7, 8].map((it, i) => (
                     <ServiceItem subsView={true} key={i} />
                 )) : <Text style={rootStyle.noData}>No subscriptions were found</Text>}
             </ScrollView>

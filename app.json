@@ -16,10 +16,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "config": {
-        "usesNonExemptEncryption": false
-      }
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
@@ -43,6 +40,12 @@
         "projectId": "a90ce7a7-cb08-43ee-ad86-9a6b24790fe3"
       }
     },
-    "owner": "codelammer"
+    "owner": "codelammer",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a90ce7a7-cb08-43ee-ad86-9a6b24790fe3"
+    }
   }
 }

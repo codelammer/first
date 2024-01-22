@@ -17,7 +17,8 @@ const home = () => {
   const { loading, getServices, getCustomerSubscriptions } = useContext(ApiContext)
   const [services, setServices] = useState([])
   const router = useRouter()
-  const dummy = null
+  // const dummy = null
+  const dummy = [1,2,3,4,5,6,7,8]
 
   const getCustServices = async () => {
     const data = await getServices()
