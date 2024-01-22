@@ -8,8 +8,8 @@ import rootStyle from '../styles'
 const index = () => {
     const router = useRouter()
     setTimeout(() => {        
-        router.push('/services/2')
-    }, 2000);
+        router.push('/home')
+    }, 1000);
 
     return (
         <SafeAreaView style={rootStyle.safeArea}>
