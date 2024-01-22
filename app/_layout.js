@@ -113,6 +113,10 @@ const Layout = () => {
       const data = await fetchWithToken(`/subscription/subscriptions/${subsciberEmail}`, 'GET')
       return data
   }
+
+  const logout = async () => {
+    return SecureStore.deleteItemAsync('token')
+  }
   
   //subscribe to service 
   const subscribeToService = async (serviceName, amountPaid) => {
@@ -131,6 +135,7 @@ const Layout = () => {
       getServices: getServices,
       getCustomerSubscriptions: getCustomerSubscriptions,
       subscribeToService: subscribeToService,
+      logout: logout,
       authState: authState,
       loading: loading
   }
