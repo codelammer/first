@@ -3,7 +3,7 @@ import React from 'react'
 import { COLORS, SIZES, icons } from '../constants'
 import { router } from 'expo-router'
 
-const ServiceItem = () => {
+const ServiceItem = ({ subsView = false }) => {
     const title = "Safe heaven service"
     const description = "This is some brief description about this lorem ipsum dolor samet."
     const price = 500
@@ -21,9 +21,9 @@ const ServiceItem = () => {
                 </View>
                 <Text style={styles.title} numberOfLines={1}>{title}</Text>
             </View>
-            <Text style={styles.description} numberOfLines={2}>{description}</Text>
+            { !subsView ? <Text style={styles.description} numberOfLines={2}>{description}</Text> : null }
             <View style={ styles.bottom }>
-                <Text style={styles.price}>{currencySymbol}{price}</Text>
+                { <Text style={styles.price}>{currencySymbol}{price}</Text>  }
                 <TouchableOpacity style={styles.btnWrapper} onPress={() => { router.push(`/services/1`) }}>
                     <Text style={styles.btn}>View</Text>
                 </TouchableOpacity>
@@ -82,9 +82,10 @@ const styles = StyleSheet.create({
     },
     btn: {
         color: COLORS.tertiary,
-        
     },
     btnWrapper: {
+        marginLeft: 'auto',
+        marginVertical: 10,
         paddingHorizontal: SIZES.large,
         paddingVertical: (SIZES.small * 0.5),
         borderRadius: '50%',
