@@ -1,7 +1,7 @@
 import ApiContext from '../utils/ApiContext'
 import React, { useContext, useEffect, useState } from 'react'
 import rootStyle from '../styles'
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator, Keyboard } from 'react-native'
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ActivityIndicator, Keyboard, ScrollView } from 'react-native'
 import { COLORS, SIZES } from '../constants'
 import { Stack, useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -44,7 +44,10 @@ const login = () => {
           }
         }
       />
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View>
+          <Text style={rootStyle.headingTitle}>Login</Text>
+        </View>
         <View style={[styles.searchWrapper, rootStyle.center, rootStyle.mY()]}>
           <TextInput style={styles.searchInput} placeholder='Username' onChangeText={(text) => {setEmail(text)}} />
         </View>
@@ -65,7 +68,7 @@ const login = () => {
             </View>
           ) : null
         }
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }
@@ -82,7 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: (SIZES.small / 2),
-    borderWidth: 1,
+    // borderWidth: 1,
     borderColor: COLORS.gray2,
     width: '100%'
   },

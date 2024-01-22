@@ -7,8 +7,6 @@ import NavbarContext from "../utils/NavbarContext";
 const Navbar = () => {
     // const tabs = ["home", "subscriptions", "account"]
     const {activeNav, updateNav} = useContext(NavbarContext)
-    console.log("activeNav")
-    console.log(activeNav)
 
     return (
         <View style={styles.container}>

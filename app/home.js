@@ -17,11 +17,13 @@ const home = () => {
   const { loading, getServices, getCustomerSubscriptions } = useContext(ApiContext)
   const [services, setServices] = useState([])
   const router = useRouter()
+  const dummy = null
 
   const getCustServices = async () => {
     const data = await getServices()
 
     if (data?.error) {
+      console.log(data)
       useShowAlert({ message: "An unexpected error occured. try again" })        
       return
     }
@@ -67,9 +69,11 @@ const home = () => {
             </View>
           </View>
           <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
-            {[1,2,3,4,5,6,7,8].map((it, i) => (
+            {
+            dummy ? dummy.map((it, i) => (
               <ServiceItem key={i}/>
-            )) }
+            )) : <Text style={rootStyle.noData}>No service were found</Text>
+            }
           </ScrollView>
         </View>
       }

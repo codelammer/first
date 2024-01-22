@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import NavbarContext from './NavbarContext'
 
 const NavbarContextProvider = ({ children }) => {
-    const [activeNav, setActiveNav] = useState("subscriptions")
+    const [activeNav, setActiveNav] = useState("home")
 
     const updateNav = (nav) => {
         setActiveNav(nav)

@@ -2,48 +2,45 @@ import { StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../constants/theme";
 
 const rootStyle = StyleSheet.create({
-    
     safeArea: {
         flex: 1,
-        backgroundColor: COLORS.lightWhite
+        backgroundColor: COLORS.lightWhite,
     },
-    loginButton : {
+    loginButton: {
         backgroundColor: COLORS.tertiary,
-        paddingVertical: (SIZES.medium / 2),
-        paddingHorizontal: (SIZES.medium * 1.5),
-        borderRadius: '50%',
+        paddingVertical: SIZES.medium / 2,
+        paddingHorizontal: SIZES.medium * 1.5,
+        borderRadius: "50%",
     },
     center: {
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: "center",
+        alignItems: "center",
     },
-    pX: (number = 1) => (
-        { 
-            paddingHorizontal: (SIZES.medium * number) 
-        }
-    ),
-    pY: (number = 1) => (
-        { 
-            paddingVertical: (SIZES.medium * number) 
-        }
-    ),
-    mX: (number = 1) => (
-        { 
-            marginHorizontal: (SIZES.medium * number) 
-        }
-    ),
-    mY: (number = 1) => (
-        { 
-            marginVertical: (SIZES.medium * number) 
-        }
-    ),
+    pX: (number = 1) => ({
+        paddingHorizontal: SIZES.medium * number,
+    }),
+    pY: (number = 1) => ({
+        paddingVertical: SIZES.medium * number,
+    }),
+    mX: (number = 1) => ({
+        marginHorizontal: SIZES.medium * number,
+    }),
+    mY: (number = 1) => ({
+        marginVertical: SIZES.medium * number,
+    }),
     headingTitle: {
-        fontSize: (SIZES.large * 2),
-        fontWeight: '800'
-      },
+        fontSize: SIZES.large * 2,
+        fontWeight: "800",
+    },
     textWhite: {
-        color: COLORS.white
-      },
-})
+        color: COLORS.white,
+    },
+    noData: {
+        fontSize: SIZES.large,
+        textAlign: 'center',
+        color: COLORS.gray,
+        paddingVertical: SIZES.large
+    },
+});
 
-export default rootStyle
+export default rootStyle;

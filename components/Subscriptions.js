@@ -26,26 +26,26 @@ const Subscriptions = () => {
     }, []);
 
     return (
-      <View style={{ flex: 1 }}>
-          <View>
-              <Text style={[rootStyle.headingTitle, styles.headingTitle]}>
-                  My Subscriptions
-              </Text>
-          </View>
+        <View style={{ flex: 1 }}>
+            <View>
+                <Text style={[rootStyle.headingTitle, styles.headingTitle]}>
+                    My Subscriptions
+                </Text>
+            </View>
 
-          <ScrollView>
-            {[1,2,3,4,5,6,7,8].map((it, i) => (
-                <ServiceItem subsView={true} key={i}/>
-              )) }
-          </ScrollView>
-      </View>
+            <ScrollView>
+                {false ? [1, 2, 3, 4, 5, 6, 7, 8].map((it, i) => (
+                    <ServiceItem subsView={true} key={i} />
+                )) : <Text style={rootStyle.noData}>No subscriptions were found</Text>}
+            </ScrollView>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
-  headingTitle: {
-    paddingBottom: 30
-  }
-})
+    headingTitle: {
+        paddingBottom: 30,
+    },
+});
 
 export default Subscriptions;
